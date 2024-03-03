@@ -1,0 +1,52 @@
+.form-control {
+  width: 100%;
+  max-width: 520px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 0 auto;
+}
+
+input, select, button {
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 0.25rem;
+}
+
+input, select {
+  &:focus {
+    outline: none;
+    border-color: var(--primary);
+  }
+}
+
+button {
+  cursor: pointer;
+  background-color: var(--primary);
+  color: var(--light);
+}
+
+h4 {
+  margin: 0;
+}
+
+.division {
+  display: flex;
+  flex-direction: column;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.answer {
+  input {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    margin: 0;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}

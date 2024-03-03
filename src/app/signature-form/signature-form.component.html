@@ -1,0 +1,89 @@
+<form [formGroup]="signatureForm" (ngSubmit)="exportSignature()" class="form-control">
+  <select formControlName="company">
+    <option value="">Vyberte společnost nebo typ podpisu</option>
+    <option value="BR_Group">BR Group</option>
+    <option value="BR_Group_divize">BR Group (divize)</option>
+    <option value="Conrop">Conrop</option>
+    <option value="E-technik">E-technik</option>
+    <option value="Forez">Forez</option>
+    <option value="IPG_plasty">IPG-plasty</option>
+    <option value="Komas">Komas</option>
+    <option value="Lanex">Lanex</option>
+    <option value="Linaset">Linaset</option>
+    <option value="Lucco">Lucco</option>
+    <option value="Montix">Montix</option>
+    <option value="PF_plasty">PF-plasty</option>
+    <option value="Singingrock">Singingrock</option>
+    <option value="SP_strojirny">SP strojírny</option>
+    <option value="Spojmont">Spojmont</option>
+    <option value="Odpoved_na_email">Odpoveď na email (pro všechny společnosti)</option>
+    <!-- další možnosti -->
+  </select>
+  <input type="text" formControlName="title" placeholder="Titul (volitelné)">
+  <input type="text" formControlName="name" placeholder="Jméno a příjmení">
+  <input type="text" formControlName="secondTitle" placeholder="Druhý titul (volitelný)">
+  <input type="text" formControlName="position" placeholder="Pracovní pozice">
+  <input type="text" formControlName="phone" placeholder="Telefon">
+  <input type="text" formControlName="phone2" placeholder="Druhé telefonní číslo (volitelné)">
+  <input type="email" formControlName="email" placeholder="E-mail">
+  <div *ngIf="signatureForm.get('company')?.value === 'BR_Group_divize'" class="division">
+    <h4>Divize</h4>
+    <label>
+      <input type="checkbox" formControlName="division1">
+      PF-plasty
+    </label>
+
+    <label>
+      <input type="checkbox" formControlName="division2">
+      Montix
+    </label>
+
+    <label>
+      <input type="checkbox" formControlName="division3">
+      LinaSet
+    </label>
+
+    <label>
+      <input type="checkbox" formControlName="division4">
+      Komas
+    </label>
+
+    <label>
+      <input type="checkbox" formControlName="division5">
+      IPG-plasty
+    </label>
+
+    <label>
+      <input type="checkbox" formControlName="division6">
+      Forez
+    </label>
+
+    <label>
+      <input type="checkbox" formControlName="division7">
+      SP strojírny
+    </label>
+
+    <label>
+      <input type="checkbox" formControlName="division8">
+      Spojmont
+    </label>
+
+    <label>
+      <input type="checkbox" formControlName="division9">
+      Lucco
+    </label>
+
+    <label>
+      <input type="checkbox" formControlName="division10">
+      E-technik
+    </label>
+  </div>
+
+  <div *ngIf="signatureForm.get('company')?.value === 'Odpoved_na_email'" class="answer">
+    <label>
+      <input type="text" formControlName="website" placeholder="Webová stránka">
+      <p>Uveďte webovou stránku, na kterou chcete odkazovat. Bez http:// nebo https://!</p>
+    </label>
+  </div>
+  <button type="submit">Exportovat</button>
+</form>

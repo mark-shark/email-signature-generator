@@ -1,0 +1,77 @@
+h1 {
+  color: var(--primary);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 250%;
+  text-align: center;
+
+  @media (max-width: 768px) {
+    font-size: 150%;
+  }
+}
+
+a {
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+header {
+  padding: 1rem 0;
+
+  img {
+    max-height: 25px;
+  }
+
+  .container {
+    text-align: center;
+  }
+}
+
+main {
+  position: relative;
+  height: 90vh;
+
+  .form {
+    position: relative;
+    z-index: 1;
+  }
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.power_unity {
+  content: '';
+  width: 500px;
+  height: 200px;
+  background-size: 774px 274px;
+  display: block;
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem;
+  background: url('../assets/img/power_unity.svg') no-repeat;
+  z-index: 0;
+}
+
+footer {
+  background-color: var(--primary);
+  padding: 1rem 0;
+  color: var(--light);
+
+  p {
+    text-align: center;
+  }
+
+  a {
+    color: var(--light);
+  }
+}
+
+

@@ -1,0 +1,85 @@
+<table xmlns:v="http://www.w3.org/1999/xhtml" style="border-spacing: 0px; padding: 0cm 5.4pt 0cm 5.4pt;">
+  <tbody>
+  <tr style="mso-yfti-irow: 0; mso-yfti-firstrow: yes;">
+    <td style="padding: 10pt 0pt 0cm 5.4pt;">
+      <p style="font-size: 10.0pt; line-height: 105%; font-family: Arial ,sans-serif; color: #242424;">
+        <!-- Pozdrav -->
+        S pozdravem
+        <!-- Pozdrav -->
+      </p>
+    </td>
+  </tr>
+  <tr style="mso-yfti-irow: 1; mso-yfti-firstrow: yes;">
+    <td style="padding: 10pt 0pt 0cm 5.4pt;">
+      <b>
+        <p style="font-size: 13.0pt; line-height: 105%; font-family: Arial ,sans-serif; color: #242424;">
+          <!-- Titul Jméno Příjmení -->
+          {{title}}  {{name}}  {{secondTitle}}
+          <!-- Titul Jméno Příjmení -->
+        </p>
+      </b>
+    </td>
+  </tr>
+  <tr style="mso-yfti-irow: 2;">
+    <td style="padding: 0cm 0pt 0cm 5.4pt;">
+      <p style="font-size: 10.0pt; line-height: 105%; font-family:Arial,sans-serif; color: #242424;">
+        <!-- Pracovní pozice -->
+        {{position}}
+        <!-- Pracovní pozice -->
+      </p>
+    </td>
+  </tr>
+  <tr style="mso-yfti-irow: 3;">
+    <!-- Linka pod podpisem -->
+    <td style="border-bottom: 1pt solid #cdcdcd; padding: 10pt 0pt 0cm 0pt;"></td>
+  </tr>
+  <tr style="mso-yfti-irow: 4;">
+    <td style="padding: 10pt 0pt 0cm 5.4pt;">
+      <p style="font-size: 10.0pt; line-height: 105%; font-family:Arial,sans-serif; color:#242424; padding: 0pt 0cm 0pt 0cm; text-decoration: none; text-underline: none;">
+
+        <a href="tel:{{href_phone}}" style="text-decoration: none; text-underline: none; color: #242424;">
+          <span style="mso-no-proof: yes; text-decoration: none; text-underline: none;">
+            {{phone}}
+          </span>
+        </a>
+
+        <!--PHONE2_START-->
+        <span style="color: #242424;">&nbsp;•&nbsp;</span>
+
+        <a href="tel:{{href_phone2}}" style="text-decoration: none; text-underline: none; color: #242424;">
+          <span style="mso-no-proof: yes; text-decoration: none; text-underline: none;">
+            {{phone2}}
+          </span>
+        </a>
+        <!--PHONE2_END-->
+
+      </p>
+    </td>
+  </tr>
+  <tr style="mso-yfti-irow: 5;">
+    <td style="padding: 10pt 0cm 0pt 5.4pt;">
+
+      <p style="width: 276.15pt; font-size: 10.0pt; line-height: 105%; font-family: Arial,sans-serif; color: #242424; margin: 0pt 0pt 0pt 0pt; padding: 0pt 0cm 1pt 0cm;">
+        <b>
+          <a href="mailto:{{email}}" target="_blank" style="color: #242424;">
+            <!-- E-mail -->
+            {{email}}
+          </a>
+        </b>
+
+        <!-- Oddělovač -->
+        <span style="color: #242424;">&nbsp;•&nbsp;</span>
+        <!-- Oddělovač -->
+
+        <b>
+          <a href="https://{{website}}/" target="_blank" title="{{website}}" style="color: #242424;">
+            <!-- Zde potřeba editovat také "href" -->
+            <!-- Webová adresa společnosti -->
+            {{website}}
+          </a>
+        </b>
+      </p>
+    </td>
+  </tr>
+  </tbody>
+</table>
