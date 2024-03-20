@@ -50,3 +50,12 @@ h4 {
     padding-right: 1rem;
   }
 }
+
+.load-image {
+  display: flex;
+  flex-direction: column;
+
+  label {
+    padding-left: .5rem;
+  }
+}

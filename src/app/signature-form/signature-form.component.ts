@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 
@@ -18,7 +18,7 @@ export class SignatureFormComponent {
     phone2: new FormControl(''),
     email: new FormControl(''),
     website: new FormControl(''),
-    division: new FormControl(''),
+    // division: new FormControl(''),
     division1: new FormControl(false),
     division2: new FormControl(false),
     division3: new FormControl(false),
@@ -29,6 +29,8 @@ export class SignatureFormComponent {
     division8: new FormControl(false),
     division9: new FormControl(false),
     division10: new FormControl(false),
+
+    fileBanner: new FormControl(''),
   });
 
   constructor(private http: HttpClient) {}
@@ -47,6 +49,36 @@ export class SignatureFormComponent {
         const preparedContent = this.prepareContent(templateContent);
         this.exportAsHtmlFile(preparedContent, `${company}-signature.htm`);
       });
+  }
+
+  base64ImageBanner: string | null = null;
+  imageWidthBanner: number | null = null;
+  imageHeightBanner: number | null = null;
+
+  onFileSelected(event: Event) {
+    const input = event.target as HTMLInputElement;
+    if (input.files && input.files.length > 0) {
+      const file = input.files[0];
+      const reader = new FileReader();
+
+      reader.onload = () => {
+        const imageSrc = reader.result as string;
+        this.base64ImageBanner = imageSrc;
+
+        // Vytvoření Image objektu pro získání rozměrů
+        const img = new Image();
+        img.onload = () => {
+          this.imageWidthBanner = img.naturalWidth;
+          this.imageHeightBanner = img.naturalHeight;
+
+          // Zde můžete volat metodu pro přípravu obsahu šablony nebo aktualizovat view
+          // Například: this.prepareContent();
+        };
+        img.src = imageSrc; // Nastavení zdroje obrázku
+      };
+
+      reader.readAsDataURL(file);
+    }
   }
 
   prepareContent(templateContent: string): string {
@@ -139,6 +171,18 @@ export class SignatureFormComponent {
     const division10 = this.signatureForm.value.division10;
     if (!division10) {
       content = content.replace(/<!--DIVISION10_START-->[\s\S]*?<!--DIVISION10_END-->/g, '');
+    }
+
+    // Předpokládejme, že již máte base64Image, imageWidth a imageHeight nastaveny
+    if (this.base64ImageBanner && this.imageWidthBanner && this.imageHeightBanner) {
+      content = content.replace('{{imageSrcBanner}}', this.base64ImageBanner);
+      content = content.replace('{{imageWidthBanner}}', this.imageWidthBanner.toString());
+      content = content.replace('{{imageHeightBanner}}', this.imageHeightBanner.toString());
+    }
+
+    const fileBanner = this.base64ImageBanner;
+    if (!fileBanner) {
+      content = content.replace(/<!--BANNER_START-->[\s\S]*?<!--BANNER_END-->/g, '');
     }
 
     return content;
